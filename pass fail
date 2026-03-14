@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+    string student_name;
+    int marks;
+
+public:
+    void set_student_data(string name, int m)
+    {
+        student_name = name;
+
+        if(m >= 0 && m <= 100)
+            marks = m;
+        else
+            marks = 0;
+    }
+
+    bool is_pass()
+    {
+        return marks >= 40;
+    }
+
+    void display_result()
+    {
+        cout << "Student: " << student_name << endl;
+        cout << "Marks: " << marks << endl;
+
+        if(is_pass())
+            cout << "Result: PASS" << endl;
+        else
+            cout << "Result: FAIL" << endl;
+    }
+};
+
+int main()
+{
+    Student s;
+    s.set_student_data("John", 75);
+    s.display_result();
+}
