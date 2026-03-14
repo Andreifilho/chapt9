@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+class MarksTable
+{
+private:
+    int marks[3][4];
+
+public:
+    void input_marks()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                cout << "Enter marks for student " << i << " subject " << j << ": ";
+                cin >> marks[i][j];
+            }
+        }
+    }
+
+    void display_marks()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                cout << marks[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    void display_student_average(int student_index)
+    {
+        int sum = 0;
+
+        for(int j = 0; j < 4; j++)
+            sum += marks[student_index][j];
+
+        cout << "Average: " << sum / 4.0 << endl;
+    }
+};
+
+int main()
+{
+    MarksTable m;
+
+    m.input_marks();
+    m.display_marks();
+    m.display_student_average(0);
+}
